@@ -1,4 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+
+
+$mainFont: 'Rubik', sans-serif;
+$fontSize: 1.6rem;
+$commentFontWeight: 300;
+$boldFontWeight: 500;
+
+$mediumBlue: #5357B6;
+$darkBlue: #334253;
+$greyishBlue: #67727E;
+$softRed: #ED6368;
+
 html {
   font-size: 62.5%;
 }
@@ -17,7 +29,7 @@ html {
   width: 100%;
   left: 0;
   top: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0, .5);
 }
 
 .none {
@@ -36,6 +48,8 @@ html {
   gap: 1rem;
 }
 
+// height auto á commentin??
+
 .comment-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -49,7 +63,6 @@ html {
   padding: 1.5rem;
   border-radius: 8px;
 }
-
 .hidden-comment-container {
   display: none;
   grid-template-columns: 1fr 1fr;
@@ -67,54 +80,52 @@ html {
 .about-user-container {
   display: flex;
   flex-direction: row;
-  grid-column: 1/3;
+  grid-column: 1 / 3;
   align-self: center;
   gap: 1rem;
 }
-
 .profile-pic {
-  grid-column: 1/1;
-  grid-row: 1/1;
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
   height: 3.5rem;
   align-self: center;
 }
 
 .user-name {
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  color: #334253;
-  grid-column: 1/1;
-  grid-row: 1/1;
-  font-size: 1.6rem;
+  font-family: $mainFont;
+  font-weight: $boldFontWeight;
+  color: $darkBlue;
+  grid-column: 1 / 1;
+  grid-row: 1 / 1; 
+  font-size: $fontSize;
   align-self: center;
   justify-self: center;
   margin-left: 1rem;
 }
 
 .time-since-comment {
-  font-family: "Rubik", sans-serif;
-  font-weight: 300;
-  color: #67727E;
-  grid-column: 2/2;
-  grid-row: 1/1;
-  font-size: 1.6rem;
+  font-family: $mainFont;
+  font-weight: $commentFontWeight;
+  color: $greyishBlue;
+  grid-column: 2 / 2;
+  grid-row: 1 / 1;
+  font-size: $fontSize;
   margin: 0;
   align-self: center;
   justify-self: flex-start;
 }
 
 .comment {
-  font-family: "Rubik", sans-serif;
-  font-weight: 300;
-  color: #67727E;
-  font-size: 1.6rem;
-  grid-column: 1/3;
-  grid-row: 2/2;
+  font-family: $mainFont;
+  font-weight: $commentFontWeight;
+  color: $greyishBlue;
+  font-size: $fontSize;
+  grid-column: 1 / 3;
+  grid-row: 2 / 2;
   width: 90%;
   margin-bottom: 1.5rem;
   margin-top: 1rem;
 }
-
 .points-container {
   background-color: #F5F6FA;
   width: 7rem;
@@ -122,29 +133,27 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  grid-column: 1/1;
-  grid-row: 3/3;
+  grid-column: 1 / 1;
+  grid-row: 3 / 3;
   border-radius: 10px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
 .points {
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  color: #5357B6;
-  font-size: 1.6rem;
+  font-family: $mainFont;
+  font-weight: $boldFontWeight;
+  color: $mediumBlue;
+  font-size: $fontSize;
 }
 
 .minus-button {
   background: none;
   border: none;
 }
-
 .minus-button img {
   padding-bottom: 0.3rem;
 }
-
 .plus-button {
   background: none;
   border: none;
@@ -153,15 +162,14 @@ html {
 .reply-button {
   background: none;
   border: none;
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  color: #5357B6;
-  font-size: 1.6rem;
+  font-family: $mainFont;
+  font-weight: $boldFontWeight;
+  color: $mediumBlue;
+  font-size: $fontSize;
   justify-self: flex-end;
   grid-column: 2;
   grid-row: 3;
 }
-
 .reply-icon {
   margin-right: 4px;
 }
@@ -185,18 +193,19 @@ html {
 .delete-button {
   background: none;
   border: none;
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  color: #ED6368;
-  font-size: 1.6rem;
+  font-family: $mainFont;
+  font-weight: $boldFontWeight;
+  color: $softRed;
+  font-size: $fontSize;
   justify-self: flex-start;
   grid-column: 2;
   grid-row: 3;
 }
-
 .delete-icon {
   margin-right: 4px;
 }
+
+// ----- css for input container ----
 
 .add-comment-container {
   margin-top: 0.5rem;
@@ -213,20 +222,20 @@ html {
 
 .current-user-img {
   height: 3.5rem;
-  grid-column: 1/1;
-  grid-row: 2/2;
+  grid-column: 1 / 1;
+  grid-row: 2 / 2;
   align-self: center;
 }
 
 .send-button {
-  grid-column: 2/2;
-  grid-row: 2/2;
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
   align-self: center;
   justify-self: flex-end;
-  font-family: "Rubik", sans-serif;
-  background-color: #5357B6;
+  font-family: $mainFont;
+  background-color: $mediumBlue;
   color: white;
-  font-weight: 500;
+  font-weight: $boldFontWeight;
   height: 4rem;
   width: 7rem;
   border-radius: 8px;
@@ -234,7 +243,7 @@ html {
 }
 
 .comment-input {
-  grid-column: 1/3;
+  grid-column: 1 / 3;
   justify-self: center;
   width: 90%;
   height: auto;
@@ -247,24 +256,26 @@ html {
 }
 
 .replyingTo {
-  color: #5357B6;
-  font-weight: 500;
+  color: $mediumBlue;
+  font-weight: $boldFontWeight;
 }
 
 .update-button {
-  grid-column: 2/2;
-  grid-row: 3/3;
+  grid-column: 2 / 2;
+  grid-row: 3 / 3;
   align-self: center;
   justify-self: flex-end;
-  font-family: "Rubik", sans-serif;
-  background-color: #5357B6;
+  font-family: $mainFont;
+  background-color: $mediumBlue;
   color: white;
-  font-weight: 500;
+  font-weight: $boldFontWeight;
   height: 4rem;
   width: 7rem;
   border-radius: 8px;
   border: none;
 }
+
+//-------- CSS for modal ------------------
 
 .delete-modal-container {
   z-index: 3;
@@ -284,26 +295,26 @@ html {
 }
 
 .modal-headline {
-  grid-row: 1/1;
-  grid-column: 2/4;
-  font-family: "Rubik", sans-serif;
+  grid-row: 1 / 1;
+  grid-column: 2 / 4;
+  font-family: $mainFont;
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: $boldFontWeight;
   align-self: center;
 }
 
 .modal-p {
-  grid-row: 2/2;
-  grid-column: 2/4;
-  font-family: "Rubik", sans-serif;
-  font-size: 1.6rem;
-  color: #67727E;
-  font-weight: 300;
+  grid-row: 2 / 2;
+  grid-column: 2 / 4;
+  font-family: $mainFont;
+  font-size: $fontSize;
+  color: $greyishBlue;
+  font-weight: $commentFontWeight;
 }
 
 .modal-btns-container {
-  grid-row: 3/3;
-  grid-column: 2/4;
+  grid-row: 3 / 3;
+  grid-column: 2 / 4;
   align-self: center;
   justify-self: center;
   gap: 1.5rem;
@@ -312,10 +323,10 @@ html {
 }
 
 .cancel-delete-btn {
-  font-family: "Rubik", sans-serif;
-  background-color: #67727E;
+  font-family: $mainFont;
+  background-color: $greyishBlue;
   color: white;
-  font-weight: 500;
+  font-weight: $boldFontWeight;
   height: 4rem;
   width: 12rem;
   border-radius: 8px;
@@ -323,32 +334,36 @@ html {
 }
 
 .modal-delete-btn {
-  font-family: "Rubik", sans-serif;
-  background-color: #ED6368;
+  font-family: $mainFont;
+  background-color: $softRed;
   color: white;
-  font-weight: 500;
+  font-weight: $boldFontWeight;
   height: 4rem;
   width: 12rem;
   border-radius: 8px;
   border: none;
 }
 
+
+
+
 @media screen and (min-width: 550px) {
+
   .comment-container {
     grid-template-columns: 12% 1fr;
-    grid-template-rows: 5rem 1fr;
+    grid-template-rows: 5rem 1fr; 
   }
-  .about-user-container {
-    grid-column: 2/2;
+  .about-user-container{
+    grid-column: 2 / 2;
     grid-row: 1;
   }
-  .comment {
-    grid-column: 2/2;
+  .comment{
+    grid-column: 2 / 2;
   }
   .points-container {
     margin-top: 1rem;
-    grid-column: 1/1;
-    grid-row: 1/2;
+    grid-column: 1 / 1;
+    grid-row: 1 / 2;
     flex-direction: column;
     height: 9rem;
     width: 3.5rem;
@@ -362,7 +377,7 @@ html {
   }
   .reply-container {
     grid-template-columns: 12% 1fr;
-    grid-template-rows: 5rem 1fr;
+    grid-template-rows: 5rem 1fr; 
   }
   .delete-button {
     grid-column: 2;
@@ -370,4 +385,9 @@ html {
     justify-self: flex-end;
     margin-right: 6.5rem;
   }
-}/*# sourceMappingURL=App.css.map */
+  }
+
+
+
+
+
