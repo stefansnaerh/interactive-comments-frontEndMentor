@@ -3,6 +3,7 @@ import './App.scss';
 import commentsData from './data.json'
 import { useEffect, useState } from 'react';
 
+import axios from 'axios'
 
 
 
@@ -56,7 +57,6 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [edit, setEdit] = useState(null)
   const [showInput, setShowInput] = useState({})
-  const [updateComments, setUpdateComments] = useState([])
   // States for modal and delete comment =>
   const [deleteModal, setDeleteModal] = useState(false)
   const [grayBackground, setGrayBackground] = useState("none")
@@ -67,18 +67,22 @@ function App() {
   const [commentContent, setCommentContent] = useState("")
   const [editCommentContent, setEditCommentContent] = useState("")
 
-  
+  const [initialData, setInitialData] = useState([])
 
   const [data, setData] = useState(() => {
     return JSON.parse(localStorage.getItem('data')) || []
   })
 
-  const getData = async () => {
-    const res = await fetch("/data/datatwo.json")
-    const data = await res.json()
-    updateComments(data.comments)
-  }
 
+  const getData = async() => {
+    axios.get("/data/datatwo.json")
+    .then(response => {
+      console.log("all set")
+      setInitialData(response.data.comments)
+      console.log(initialData)
+    })
+  }
+ 
   
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data))
@@ -86,11 +90,12 @@ function App() {
 
   useEffect(() => {
     const newData = JSON.parse(localStorage.getItem("data"))
-    if (newData){
+    if (newData !== null){
     setData(newData)
    }
    else {
     getData()
+    setData(initialData)
    }
     setLoading(false)
   }, [])
