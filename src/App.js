@@ -14,6 +14,7 @@ import AddReplyComponent from './components/addReplyComonent';
 import EditReplyComponent from './components/editReplyComponent';
 
 
+
 const DeleteModalComponent = (props) => {
   return (
     <div className='delete-modal-container'>
@@ -42,7 +43,7 @@ function App() {
       score: 0,
       user: {
         image: {
-          png: "./images/avatars/image-juliusomo.png",
+          png: "/images/avatars/image-juliusomo.png",
           webp: ""
         },
         username: "juilusomo"
@@ -55,6 +56,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [edit, setEdit] = useState(null)
   const [showInput, setShowInput] = useState({})
+  const [updateComments, setUpdateComments] = useState([])
   // States for modal and delete comment =>
   const [deleteModal, setDeleteModal] = useState(false)
   const [grayBackground, setGrayBackground] = useState("none")
@@ -71,6 +73,12 @@ function App() {
     return JSON.parse(localStorage.getItem('data')) || []
   })
 
+  const getData = async () => {
+    const res = await fetch("/data/datatwo.json")
+    const data = await res.json()
+    updateComments(data.comments)
+  }
+
   
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data))
@@ -80,6 +88,9 @@ function App() {
     const newData = JSON.parse(localStorage.getItem("data"))
     if (newData){
     setData(newData)
+   }
+   else {
+    getData()
    }
     setLoading(false)
   }, [])
@@ -259,7 +270,7 @@ function App() {
           handleComment={handleComment}
           addToReplies={() => addToReplies(comment.id, index, comment)}
           commentContent={commentContent}
-          image={"../images/avatars/image-juliusomo.png"}
+          image={"/images/avatars/image-juliusomo.png"}
           />
             </>
           )

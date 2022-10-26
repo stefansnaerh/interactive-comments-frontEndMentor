@@ -20,9 +20,9 @@ const EditReplyComponent = (props) => {
         <h3 className='time-since-comment'>{props.createdAt}</h3>
         <textarea className='comment' onChange={props.handleEditing} value={props.editCommentConent}>{props.content}</textarea>
         <div className='points-container'>
-            <button onClick={() => addPoints()} className='plus-button'><img alt='plus' src='./images/icon-plus.svg'/></button>
+            <button onClick={() => addPoints()} className='plus-button'><img alt='plus' src='/images/icon-plus.svg'/></button>
             <p className='points'>{points}</p>
-            <button onClick={() => subtractPoints()} className='minus-button'><img alt='minus'src='./images/icon-minus.svg'/></button>
+            <button onClick={() => subtractPoints()} className='minus-button'><img alt='minus'src='/images/icon-minus.svg'/></button>
           </div>
           <button onClick={() => props.submitEditedComment()} type='submit' className='update-button'>UPDATE</button>
       </div>
